@@ -5,13 +5,13 @@
 /* Custom scroll bar */
 /* Scrollbar Width */
 ::-webkit-scrollbar {
-  width: 12px; /* Slightly wider for a more premium feel */
+  width: 1px; /* Slightly wider for a more premium feel */
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f0f0f0; /* Light gray background */
-  border-radius: 8px; /* Rounded corners for a smoother look */
+  border-radius: 6px; /* Rounded corners for a smoother look */
 }
 
 /* Handle */
@@ -29,4 +29,33 @@
 /* Handle active (when dragging) */
 ::-webkit-scrollbar-thumb:active {
   background: #666; /* Even darker gray for when the handle is being dragged */
+}
+
+/* Line truncates */
+.truncate-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.truncate-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }

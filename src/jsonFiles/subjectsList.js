@@ -1,0 +1,15 @@
+export const subjectsList = [
+  { name: "Product Inquiry", slug: "product-inquiry" },
+  { name: "Order Status", slug: "order-status" },
+  { name: "Bulk Purchase Request", slug: "bulk-purchase-request" },
+  { name: "Request a Quote", slug: "request-quote" },
+  { name: "Web Development Services", slug: "web-development-services" },
+  { name: "App Development Services", slug: "app-development-services" },
+  { name: "Graphic Design Services", slug: "graphic-design-services" },
+  { name: "Video Editing Services", slug: "video-editing-services" },
+  { name: "Logo Design Services", slug: "logo-design-services" },
+  { name: "Technical Support", slug: "technical-support" },
+  { name: "Partnership Opportunities", slug: "partnership-opportunities" },
+  { name: "Feedback", slug: "feedback" },
+  { name: "Other", slug: "other" },
+];
