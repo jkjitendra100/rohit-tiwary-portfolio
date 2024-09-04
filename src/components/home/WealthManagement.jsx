@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -17,7 +17,7 @@ export default function WealthManagement() {
   };
 
   return (
-    <div className="mt-20" id="it-services">
+    <div className="mt-20" id="wealth-management">
       <p className="bg-gradient-to-b from-primary via-rose-600 to-secondary bg-clip-text text-transparent font-semibold">
         OUR SERVICES
       </p>

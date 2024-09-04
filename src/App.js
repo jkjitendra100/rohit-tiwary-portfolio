@@ -1,34 +1,29 @@
 import React from "react";
 import Header from "./components/global/Header";
-import Hero from "./components/home/Hero";
 import { Container } from "@mui/material";
-import OurBrands from "./components/home/OurBrands";
-import ContactUs from "./components/home/ContactUs";
-import ItServices from "./components/home/ItServices";
-import SocialApps from "./components/home/SocialApps";
 import Footer from "./components/global/Footer";
-import WealthManagement from "./components/home/WealthManagement";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import BrandDetails from "./pages/BrandDetails";
 
 export default function App() {
   // Design Reference URL: https://rainbowit.net/themes/inbio/#
   return (
     <div className="bg-white text-secondary">
-      <div className="">
-        <Header />
-        <div className="min-h-[100vh] overflow-y-scroll">
-          <Container maxWidth="xl" className="pt-20">
-            <div className="">
-              <Hero />
-              <OurBrands />
-              <WealthManagement />
-              <ItServices />
-              <SocialApps />
-              <ContactUs />
-            </div>
-          </Container>
+      <BrowserRouter>
+        <div className="">
+          <Header />
+          <div className="min-h-[100vh] overflow-y-scroll">
+            <Container maxWidth="xl" className="pt-20">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/brandDetails" element={<BrandDetails />} />
+              </Routes>
+            </Container>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </BrowserRouter>
     </div>
   );
 }

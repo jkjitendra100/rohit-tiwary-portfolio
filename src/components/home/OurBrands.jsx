@@ -1,8 +1,12 @@
 import React from "react";
 import { IoIosHeart } from "react-icons/io";
 import { motion } from "framer-motion";
+import { brandsList } from "../../jsonFiles/brandsList";
+import { useNavigate } from "react-router-dom";
 
 export default function OurBrands() {
+  const navigate = useNavigate();
+
   return (
     <div className="mt-20 sm:mt-10" id="our-brands">
       <p className="bg-gradient-to-b from-primary via-rose-600 to-secondary bg-clip-text text-transparent font-semibold">
@@ -27,87 +31,19 @@ export default function OurBrands() {
         </motion.div>
       </div>
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center flex-wrap">
-        <OurBrandCard
-          brandName="Premium Dream Night Sandal & Citronella Herbal Incense Stick"
-          slogan="मच्छरों का यमराज"
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/dreamNightBanner.webp"
-        />
-
-        <OurBrandCard
-          brandName="Black Panther Herbal Incense Stick"
-          slogan="मच्छरों का यमराज"
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/blackPantherBanner.webp"
-        />
-
-        <OurBrandCard
-          brandName={
-            <p className="">
-              Metro Hygienic Disinfectant Perfumed Fluid & Home Care Products
-              (स्वच्छ भारत, स्वस्थ भारत)
-            </p>
-          }
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/metroHygenicBanner.webp"
-        />
-
-        <OurBrandCard
-          brandName={<p className="">Palamu Spices (स्वाद के साथ सेहत भी)</p>}
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/plamuSpicesBanner.webp"
-        />
-
-        <OurBrandCard
-          brandName={<p>Khadakpur Masala</p>}
-          stablisedYear={2007}
-          likes={378}
-          brandLogo="/assets/images/kharagpur-masala-banner.webp"
-        />
-
-        <OurBrandCard
-          brandName={
-            <p className="">
-              Asha Bal Gopal Puja Ghee (त्वमेव सर्वम् मम् देव देव)
-            </p>
-          }
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/bal-gopal-ghee-banner.webp"
-        />
-
-        <OurBrandCard
-          brandName={
-            <p className="">
-              Asha Govardhan Puja Ghee (त्वमेव सर्वम् मम् देव देव)
-            </p>
-          }
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/goverdhan-ghee-banner.webp"
-        />
-
-        <OurBrandCard
-          brandName={
-            <p className="">Asha Til Ganga Arti (त्वमेव सर्वम् मम् देव देव)</p>
-          }
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/til-ganga-aarti.webp"
-        />
-
-        <OurBrandCard
-          brandName={
-            <p className="">Asha Til Laxmi (त्वमेव सर्वम् मम् देव देव)</p>
-          }
-          stablisedYear={1998}
-          likes={489}
-          brandLogo="/assets/images/til-laxmi.webp"
-        />
+        {brandsList?.map((item, index) => (
+          <OurBrandCard
+            key={index}
+            brandName={item?.brandName}
+            slogan={item?.slogan}
+            stabilizedYear={item?.stabilizedYear}
+            likes={item?.likes}
+            brandLogo={item?.brandLogo}
+            onClick={() =>
+              navigate("/brandDetails", { state: { brandId: item?._id } })
+            }
+          />
+        ))}
       </div>
     </div>
   );
@@ -120,9 +56,11 @@ const OurBrandCard = ({
   slogan,
   brandLogo,
   imageStyle = "object-fill",
+  onClick,
 }) => {
   return (
     <motion.div
+      onClick={onClick}
       className="p-6 group cursor-pointer bg-white rounded-xl border-t border-borderColor shadow-lg shadow-shadowColor hover:bg-gradient-to-tr from-secondary via-rose-600 to-primary hover:text-white hover:shadow-shadowColor hover:shadow-xl duration-500 animate-gradient-move"
       initial={{ opacity: 0.7, scale: 1, y: 80 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -148,7 +86,7 @@ const OurBrandCard = ({
               <IoIosHeart /> {likes}
             </p>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <h2 className="mt-6 text-xl truncate-1 cursor-pointer font-semibold leading-8 duration-500 group-hover:text-white bg-gradient-to-t from-primary via-rose-600 to-secondary bg-clip-text text-transparent">
               {brandName}
             </h2>

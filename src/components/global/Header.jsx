@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { BiMenu } from "react-icons/bi";
 import { PiFlower } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 const navItems = [
@@ -25,7 +26,7 @@ const navItems = [
 ];
 
 export default function Header() {
-  // const { window } = props;
+  const navigate = useNavigate();
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showHeader, setShowHeader] = useState(true);
 
@@ -57,9 +58,10 @@ export default function Header() {
   const handleScrollToElementId = (key) => {
     switch (key) {
       case "Brands":
-        const brandsElement = document.getElementById("it-services");
+        navigate("/");
+        const brandsElement = document.getElementById("our-brands");
         if (brandsElement) {
-          const yOffset = -70; // Adjust this value to set the top margin
+          const yOffset = -60; // Adjust this value to set the top margin
           const yPosition =
             brandsElement.getBoundingClientRect().top +
             window.pageYOffset +
@@ -73,61 +75,79 @@ export default function Header() {
         break;
 
       case "Wealth Management":
-        const wealthElement = document.getElementById("it-services");
-        if (wealthElement) {
-          const yOffset = -70; // Adjust this value to set the top margin
-          const yPosition =
-            wealthElement.getBoundingClientRect().top +
-            window.pageYOffset +
-            yOffset;
+        navigate("/");
+        setTimeout(() => {
+          const wealthElement = document.getElementById("wealth-management");
+          if (wealthElement) {
+            const yOffset = -60; // Adjust this value to set the top margin
+            const yPosition =
+              wealthElement.getBoundingClientRect().top +
+              window.pageYOffset +
+              yOffset;
 
-          window.scrollTo({
-            top: yPosition,
-            behavior: "smooth",
-          });
-        }
+            window.scrollTo({
+              top: yPosition,
+              behavior: "smooth",
+            });
+          }
+        }, 100);
         break;
 
       case "IT Services":
-        const element1 = document.getElementById("it-services");
-        if (element1) {
-          const yOffset = -70; // Adjust this value to set the top margin
-          const yPosition =
-            element1.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        navigate("/");
+        setTimeout(() => {
+          const element1 = document.getElementById("it-services");
+          if (element1) {
+            const yOffset = -60; // Adjust this value to set the top margin
+            const yPosition =
+              element1.getBoundingClientRect().top +
+              window.pageYOffset +
+              yOffset;
 
-          window.scrollTo({
-            top: yPosition,
-            behavior: "smooth",
-          });
-        }
+            window.scrollTo({
+              top: yPosition,
+              behavior: "smooth",
+            });
+          }
+        }, 100);
         break;
 
       case "Social Apps":
-        const element2 = document.getElementById("social-services");
-        if (element2) {
-          const yOffset = -70; // Adjust this value to set the top margin
-          const yPosition =
-            element2.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        navigate("/");
+        setTimeout(() => {
+          const element2 = document.getElementById("social-services");
+          if (element2) {
+            const yOffset = -60; // Adjust this value to set the top margin
+            const yPosition =
+              element2.getBoundingClientRect().top +
+              window.pageYOffset +
+              yOffset;
 
-          window.scrollTo({
-            top: yPosition,
-            behavior: "smooth",
-          });
-        }
+            window.scrollTo({
+              top: yPosition,
+              behavior: "smooth",
+            });
+          }
+        }, 100);
         break;
 
       case "Contact Us":
-        const element3 = document.getElementById("contact-us");
-        if (element3) {
-          const yOffset = -70; // Adjust this value to set the top margin
-          const yPosition =
-            element3.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        navigate("/");
+        setTimeout(() => {
+          const element3 = document.getElementById("contact-us");
+          if (element3) {
+            const yOffset = -60; // Adjust this value to set the top margin
+            const yPosition =
+              element3.getBoundingClientRect().top +
+              window.pageYOffset +
+              yOffset;
 
-          window.scrollTo({
-            top: yPosition,
-            behavior: "smooth",
-          });
-        }
+            window.scrollTo({
+              top: yPosition,
+              behavior: "smooth",
+            });
+          }
+        }, 100);
         break;
 
       default:
